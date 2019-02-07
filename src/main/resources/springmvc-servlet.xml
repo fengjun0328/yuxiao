@@ -13,8 +13,8 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
         
 	<context:component-scan base-package="cn.jboa.conllter"/>
-	
-	<!--<mvc:annotation-driven>
+
+	<mvc:annotation-driven>
 	 	<mvc:message-converters>
 	 		<bean class="org.springframework.http.converter.StringHttpMessageConverter">
 	 			<property name="supportedMediaTypes">
@@ -32,13 +32,12 @@
 	 			</property>
 	 			<property name="features">
 	 				<list>
-	 				 &lt;!&ndash;   Date的日期转换器 &ndash;&gt;
 					  <value>WriteDateUseDateFormat</value>
 					</list>
 				</property>
 			</bean>
 		</mvc:message-converters>
-	</mvc:annotation-driven>-->
+	</mvc:annotation-driven>
 	
 	<mvc:resources location="/statics/" mapping="/statics/**"></mvc:resources>
 
