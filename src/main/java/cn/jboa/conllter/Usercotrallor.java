@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.annotation.Resource;
 
 @Controller
-@MapperScan("cn.jboa.dao")
 public class Usercotrallor {
 
     @Resource
@@ -25,10 +24,11 @@ public class Usercotrallor {
     @RequestMapping(value = "/index.html",method = RequestMethod.POST)
     public  String  login(User user) {
         if (userService.getUilte(user)!=null) {
-            System.out.println("登录成功！");
-            }else{
-            System.out.println("登录失败！");
-        }
+            return "redirect:/delu.html";
+            }
         return "index";
     }
+
+
+
 }

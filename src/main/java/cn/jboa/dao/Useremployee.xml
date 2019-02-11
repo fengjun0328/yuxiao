@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jboa.dao.Useremployee">
+    <select id="getChaKan" resultType="Employee">
+         select * from EMpLoyee
+         <where>
+              <if test="employee.Position_id!=null and employee.Position_id!=0">
+                  Position_id=#{employee.Position_id}
+              </if>
+              <if test="employee.DEPartment_id!=null and employee.DEPartment_id!=0">
+                  DEPartment_id=#{employee.DEPartment_id}
+              </if>
+         </where>
+    </select>
+
+    <insert id="add" parameterType="Employee">
+        insert  into employee(Position_id,DEPartment_id,uname,upassword,status)
+        value (#{employee.Position_id},#{employee.DEPartment_id},#{employee.uname},#{employee.upassword},#{employee.status});
+    </insert>
+
+    <delete id="del">
+        delete from employee where SN=#{SN};
+    </delete>
+</mapper>
