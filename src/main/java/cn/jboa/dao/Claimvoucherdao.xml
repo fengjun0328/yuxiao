@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jboa.dao.Claimvoucherdao">
+    <select id="getTime" resultType="Claimvoucher">
+             select  *  from  claimvoucher
+              <where>
+                 <if test="claimvoucher.CREATE_TIME!=null and claimvoucher.MODIF_TIME!=0">
+                     CREATE_TIME=#{claimvoucher.CREATE_TIME}
+                 </if>
+                 <if test="claimvoucher.MODIF_TIME!=null and claimvoucher.MODIF_TIME!=0">
+                     MODIF_TIME=#{claimvoucher.MODIF_TIME}
+                 </if>
+              </where>
+    </select>
+
+    <delete id="del">
+          delete  from  claimvoucher  where id=#{id};
+    </delete>
+</mapper>
